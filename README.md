@@ -6,6 +6,7 @@
 ## Descripción del proyecto
 
 Challenge para Intive: Implementar el uso de la api RAMDOMUSER.ME
+
 En primera instancia se muestra un listado de usuarios que se obtiene de la api en cuestión.
 Se usa el siguiente endpoint para que siempre traiga los mismos datos:
 https://randomuser.me/api/?seed=srojasweb&results=
@@ -19,11 +20,12 @@ El listado de usuarios muestra nombre completo, imagen pequeña, ciuidad, país 
 **ACLARACION**
 
 Me encontre con el inconveniente de que falla para ver el detalle del usuario. Al ser una api donde no hay un endpoint para consultar un usuario directamente por un ID o algún identificador directamente, tuve que optar por traer todos los registros, según el endpoint indicado inicialmente, con el mayor limite: https://randomuser.me/api/?seed=srojasweb&results=500
-Luego recorrer ese listado de resultados y machearlo con el campo uuid del usuario (campo al que no pude acceder probando con algun endpoint a la api, ya que trae siempre resultados ramdon si no especificamos un seed). Este proceso me fallta en alguna parte, ya que no se logra cargar del todo como se pretende.
+
+Luego recorrer ese listado de resultados y machearlo con el campo uuid del usuario (campo al que no pude acceder probando con algun endpoint a la api, ya que trae siempre resultados ramdon si no especificamos un seed). Este proceso me falla en alguna parte, ya que no se logra cargar del todo como se pretende.
 
 Adjunto video demostrativo para tratar de mostrar el problema con el que me encontre.
 
-[VER VIDEO](https://youtu.be/mAmyEav8LhQ) del proyecto y su funcionamiento.
+[VER VIDEO](https://youtu.be/mAmyEav8LhQ) de la mostración.
 
 **Tecnologías empleadas**
 
