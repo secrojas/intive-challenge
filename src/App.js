@@ -1,30 +1,23 @@
-import React, { Fragment } from 'react';
-import Header from './components/Header';
-import Formulario from './components/Formulario';
-import ListaRecetas from './components/ListaRecetas';
+import React from 'react';
 
-import CategoriasProvider from './context/CategoriasContext';
-import RecetasProvider from './context/RecetasContext';
-import ModalProvider from './context/ModalContext';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+
+import {
+  BrowserRouter as Router,
+  Route
+} from "react-router-dom";
 
 function App() {
-  return (
-    <CategoriasProvider>
-      <RecetasProvider>
-        <ModalProvider>
-          <Header />
+  return (    
 
-          <div className="container mt-5">
-            <div className="row">
-                <Formulario />
-            </div>
+    <Router>
+      <div className="App">
+          <Route exact path="/" component={Home} />
+          <Route exact path="/detail/:id/:limit" component={Detail} />
+      </div>
+    </Router>
 
-            <ListaRecetas />
-          </div>
-
-        </ModalProvider>
-      </RecetasProvider>
-    </CategoriasProvider>
   );
 }
 

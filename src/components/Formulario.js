@@ -1,22 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { CategoriasContext } from '../context/CategoriasContext';
-import { RecetasContext } from '../context/RecetasContext';
+import { UserApiContext } from '../context/UserApiContext';
 
 const Formulario = () => {
 
-    const [ busqueda, guardarBusqueda ] = useState({
-        nombre: '',
-        categoria: ''
+    const [ search, saveSearch ] = useState({       
+        limit: ''
     });
-
-    const { categorias } = useContext(CategoriasContext);
-    console.log(categorias);
-    const { buscarRecetas, guardarConsultar } = useContext(RecetasContext );
+    
+    const { searchUserApi, saveConsult } = useContext(UserApiContext);
 
     // función para leer los contenidos
-    const obtenerDatosReceta = e => {
-            guardarBusqueda({
-            ...busqueda,
+    const getData = e => {
+        saveSearch({
+            ...search,
             [e.target.name] : e.target.value
         })
     }
@@ -26,47 +22,36 @@ const Formulario = () => {
             className="col-12"
             onSubmit={ e => {
                 e.preventDefault();
-                buscarRecetas(busqueda);
-                guardarConsultar(true);
+                searchUserApi(search);
+                saveConsult(true);
             }}
         >
             <fieldset className="text-center">
-                <legend>Busca bebidas por Categoría o Ingrediente</legend>
+                <legend>List of thumbnails Random User API</legend>
             </fieldset>
 
-            <div className="row mt-4">
-                <div className="col-md-4">
-                    <input
-                        name="nombre"
-                        className="form-control"
-                        type="text"
-                        placeholder="Buscar por Ingrediente"
-                        onChange={obtenerDatosReceta}
-                        required
-                    />
-                </div>
-                <div className="col-md-4">
+            <div className="row mt-4">                
+                <div className="col-md-6">
                     <select 
                         className="form-control"
-                        name="categoria"
-                        onChange={obtenerDatosReceta}
+                        name="limit"
+                        onChange={getData}                        
                         required
                     >
-                        <option value="">-- Selecciona Categoría --</option>
-                        {categorias.map(categoria => (
-                            <option 
-                                key={categoria.strCategory} 
-                                value={categoria.strCategory} 
-                            >{categoria.strCategory}</option>
-                        ))}
+                        <option value="">-- Select Range of results --</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                         <option value="200">200</option>
+                        <option value="500">500</option>
+                       
                     </select>
                 </div>
 
-                <div className="col-md-4">
+                <div className="col-md-6">
                     <input
                         type="submit"
                         className="btn btn-block btn-primary"
-                        value="Buscar Bebidas"
+                        value="Show Data"
                     />
                 </div>
             </div>
