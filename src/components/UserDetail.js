@@ -29,7 +29,7 @@ const UserDetail = ({id,limit}) => {
         })
         .finally(() => {
             setLoading(false);
-            getDataUser();
+            
         });
     }
 
@@ -86,7 +86,7 @@ const UserDetail = ({id,limit}) => {
                                         </p>
                                     
                                         <p className="text-one">                   
-                                            Location : {user.location.street.number} {user.location.street.name}
+                                            Location: {user.location.street.number} {user.location.street.name}
                                         </p>                                         
                                     </>                                
                                 ))                                
